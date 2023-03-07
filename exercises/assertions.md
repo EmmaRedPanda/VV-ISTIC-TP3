@@ -11,3 +11,20 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+
+1. It's because (3 * .4) produces decimals numbers after the point like 1.2000000000x. We want use a method as .equals() to make the comparison or autorise an imprecision + or - lambda when we compare with ==.
+
+2. `assertEquals` test the value but `assertSame` check too the reference of the object.
+For example :
+public class JUnitAssertion { 
+    @Test
+    public void test() {
+        String s1 = new String("HELLO"); 
+        String s2 = new String("HELLO");
+        assertEquals (s1, s2); //true
+        assertSame (s1, s2); //false
+        assertSame ("HELLO", "HELLO"); //true
+    }
+}
+
+3. 
