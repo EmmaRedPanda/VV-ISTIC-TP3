@@ -37,3 +37,28 @@ Include the improved test code in this file.
 
 ### Part 2 : Detect a test smell
 
+TestSmell : JUnitAssertionsShouldIncludeMessage
+In : commons-math/commons-math-legacy/src/test/java/org/apache/commons/math4/legacy/genetics/RandomKeyTest.java
+Line : 60 to 64
+Solution : add a description parameter in assertions
+
+The test improved :
+```
+ @Test
+    public void testDecode() {
+        DummyRandomKey drk = new DummyRandomKey(new Double[] {0.4, 0.1, 0.5, 0.8, 0.2});
+        List<String> decoded = drk.decode(Arrays.asList(new String[] {"a", "b", "c", "d", "e"}));
+
+        //Assert.assertEquals("b", decoded.get(0)); //BAD
+        //Assert.assertEquals("e", decoded.get(1)); //BAD
+        //Assert.assertEquals("a", decoded.get(2)); //BAD
+        //Assert.assertEquals("c", decoded.get(3)); //BAD
+        //Assert.assertEquals("d", decoded.get(4)); //BAD
+        
+        Assert.assertEquals("Key b from the list equals to decoded.get(0)","b", decoded.get(0)); //GOOD
+        Assert.assertEquals("Key e from the list equals to decoded.get(1)","e", decoded.get(1)); //GOOD
+        Assert.assertEquals("Key a from the list equals to decoded.get(2)","a", decoded.get(2)); //GOOD
+        Assert.assertEquals("Key c from the list equals to decoded.get(3)","c", decoded.get(3)); //GOOD
+        Assert.assertEquals("Key d from the list equals to decoded.get(4)","d", decoded.get(4)); //GOOD
+    }
+```
