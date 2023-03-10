@@ -58,24 +58,25 @@ Steps :
 - Created partition blocks for each characteristic or behavior. Each partition block groups together inputs that have similar characteristics or behaviors.
 - Generated test cases for each partition block to ensure that the method behaves correctly for that block.
 
+An initial set of inputs :
 1) Empty string
-- Characteristics: This input has no grouping symbols
-- Partition block: Empty string input
+    - Characteristics: This input has no grouping symbols
+    - Partition block: Empty string input
 
 2) String with balanced grouping symbols
-- Characteristics: This input has an equal number of opening and closing grouping symbols, and they are arranged in a balanced way
-- Partition block: Balanced grouping symbols input
+    - Characteristics: This input has an equal number of opening and closing grouping symbols, and they are arranged in a balanced way
+    - Partition block: Balanced grouping symbols input
 
 3) String with unbalanced grouping symbols
-- Characteristics: This input has an unequal number of opening and closing grouping symbols or they are arranged in an unbalanced way
-- Partition block: Unbalanced grouping symbols input
+    - Characteristics: This input has an unequal number of opening and closing grouping symbols or they are arranged in an unbalanced way
+    - Partition block: Unbalanced grouping symbols input
 
 4) String with nested grouping symbols
-- Characteristics: This input has grouping symbols that are nested inside other grouping symbols
-- Partition block: Nested grouping symbols input
+    - Characteristics: This input has grouping symbols that are nested inside other grouping symbols
+    - Partition block: Nested grouping symbols input
 
 5) String with only opening or closing grouping symbols
-- Characteristics: This input has only opening or closing grouping symbols without any corresponding closing or opening symbols respectively
-- Partition block: Only opening or closing grouping symbols input
+    - Characteristics: This input has only opening or closing grouping symbols without any corresponding closing or opening symbols respectively
+    - Partition block: Only opening or closing grouping symbols input
 
 #### Part 2
