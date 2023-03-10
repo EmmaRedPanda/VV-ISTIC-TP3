@@ -40,3 +40,76 @@ Use the following steps to design the test suite:
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
 ## Answer
+
+```
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class BinaryHeap<T> {
+    private ArrayList<T> heap;
+    private Comparator<T> comparator;
+    private int count;
+
+    public BinaryHeap(Comparator<T> comparator) {
+        this.heap = new ArrayList<>();
+        this.comparator = comparator;
+        this.count = 0;
+    }
+
+    public T pop() {
+        T min = heap.get(0);
+        heap.set(0, heap.get(count - 1));
+        heap.remove(count - 1);
+        count--;
+
+        int current = 0;
+        int leftChild = 1;
+        int rightChild = 2;
+
+        while (leftChild < count) {
+            int minChild = leftChild;
+            if (rightChild < count && comparator.compare(heap.get(rightChild), heap.get(leftChild)) < 0) {
+                minChild = rightChild;
+            }
+
+            if (comparator.compare(heap.get(current), heap.get(minChild)) > 0) {
+                swap(current, minChild);
+                current = minChild;
+                leftChild = 2 * current + 1;
+                rightChild = 2 * current + 2;
+            } else {
+                break;
+            }
+        }
+
+        return min;
+    }
+
+    public T peek() {
+        return heap.get(0);
+    }
+
+    public void push(T element) {
+        heap.add(element);
+        count++;
+
+        int current = count - 1;
+        int parent = (current - 1) / 2;
+        while (current > 0 && comparator.compare(heap.get(current), heap.get(parent)) < 0) {
+            swap(current, parent);
+            current = parent;
+            parent = (current - 1) / 2;
+        }
+    }
+
+    public int count() {
+        return count;
+    }
+
+    private void swap(int index1, int index2) {
+        T temp = heap.get(index1);
+        heap.set(index1, heap.get(index2));
+        heap.set(index2, temp);
+    }
+}
+```
