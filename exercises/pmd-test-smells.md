@@ -15,3 +15,25 @@ Include the improved test code in this file.
 
 ## Answer
 
+### Part 1 : PMD Documentation
+
+- DetachedTestCase.md : X
+- JUnit4SuitesShouldUseSuiteAnnotation.md : X
+- JUnit4TestShouldUseAfterAnnotation.md : X
+- JUnit4TestShouldUseBeforeAnnotation.md : X
+- JUnit4TestShouldUseTestAnnotation.md : X
+- JUnitAssertionsShouldIncludeMessage.md : Assertion roulette
+- JUnitSpelling.md : The Local Hero
+- JUnitStaticSuite.md : X
+- JUnitTestContainsTooManyAsserts.md : Piggyback, Eager test
+- JUnitTestsShouldIncludeAssert.md : X
+- JUnitUseExpected.md : X
+- UnnecessaryBooleanAssertion.md : X
+- UseAssertEqualsInsteadOfAssertTrue.md : Equality pollution
+- UseAssertNullInsteadOfAssertTrue.md : X
+- UseAssertSameInsteadOfAssertTrue.md : X
+- UseAssertTrueInsteadOfAssertEquals.md : X
+
+
+### Part 2 : Detect a test smell
+
