@@ -14,7 +14,7 @@ Answer the following questions:
 
 1. It's because (3 * .4) produces decimals numbers after the point like 1.2000000000x. We want use a method as .equals() to make the comparison or autorise an imprecision + or - lambda when we compare with ==.
 
-2. `assertEquals` test the content but `assertSame` check too the reference of the object.
+2. `assertEquals` test the content but `assertSame` check the reference of the object.
 For example :
 ```
 public class JUnitAssertion { 
