@@ -64,49 +64,33 @@ An initial set of inputs :
     - Characteristics: This input has no grouping symbols
     - Partition block: Empty string input
 
-2) String with balanced grouping symbols
-    - Characteristics: This input has an equal number of opening and closing grouping symbols, and they are arranged in a balanced way
-    - Partition block: Balanced grouping symbols input
+2) String with only one opening grouping symbol
+    - Characteristics: This input has only one opening symbol
+    - Partition block: Unbalanced single opening symbols input
 
-3) String with unbalanced grouping symbols
-    - Characteristics: This input has an unequal number of opening and closing grouping symbols or they are arranged in an unbalanced way
-    - Partition block: Unbalanced grouping symbols input
-
-4) String with nested grouping symbols
+3) String with balanced nested grouping symbols
     - Characteristics: This input has grouping symbols that are nested inside other grouping symbols
     - Partition block: Nested grouping symbols input
-
-5) String with only opening or closing grouping symbols
-    - Characteristics: This input has only opening or closing grouping symbols without any corresponding closing or opening symbols respectively
-    - Partition block: Only opening or closing grouping symbols input
 
 
 #### Part 2
 
 Steps :
 - Run the existing test cases for the isBalanced method
-- Collect code coverage information using a code coverage tool as JaCoCo
+- Collect code coverage information using a code coverage tool as IntelliJ tool or JaCoCo
 - Identify the code statements that are not covered by the existing test cases
 - Add new test cases to cover the remaining code statements
 - Repeat previous steps until you achieve the desired level of code coverage
 
-The initial set of test cases covers most of the code branches in the isBalanced method. There are a few additional test cases that can be added to increase the statement coverage and achieve a higher level of statement coverage :
+The initial set of test cases covers most of the code branches in the isBalanced method. There are a few additional test cases that can be added to increase the statement coverage and achieve 100% coverage :
 
-- Test case for an input containing only one opening grouping symbol and no closing symbol:
-```
-isBalanced("(") => false
-```
 - Test case for an input containing only one closing grouping symbol and no opening symbol:
 ```
-isBalanced(")") => false
+isBalanced("}") => false
 ```
-- Test case for an input containing a nested grouping symbol structure:
+- Test case for a string with unbalanced nested grouping symbols:
 ```
-isBalanced("{[()]}") => true
-```
-- Test case for an input containing a grouping symbol structure with extra opening symbols:
-```
-isBalanced("[(])") => false
+isBalanced("{[}]") => false
 ```
 
 
@@ -117,13 +101,11 @@ To verify this, we can create a table that lists each partition block along with
 Partition Blocks:
 | Block  | Description  | Test Case  |
 |---|---|---|
-| P1  | Empty input  | testEmptyInput()  |
-| P2  | Single symbol  | testSingleSymbol()  |
-| P3  | Single type of symbols  | testSingleTypeSymbols()  |
-| P4  | Balanced with nested symbols  | testBalancedNestedSymbols()  |
-| P5  | Balanced with non-nested symbols  | testBalancedNonNestedSymbols()  |
-| P6  | Unbalanced with nested symbols  | testUnbalancedNestedSymbols()  |
-| P7  | Unbalanced with non-nested symbols  | testUnbalancedNonNestedSymbols()  |
+| P1  | Balanced with empty string input  | isEmpty()  |
+| P2  | Balanced with nested symbols  | nestedBalanced()  |
+| P3  | Unbalanced with single opening symbol  | openingUnbalanced()  |
+| P4  | Unbalanced with single closing symbol  | closingUnbalanced()  |
+| P5  | Unbalanced with nested symbols  | nestedUnbalanced()  |
 		
 All partition blocks have at least one test case that satisfies their base choice, so the tests designed for isBalanced method satisfy Base Choice Coverage.
 

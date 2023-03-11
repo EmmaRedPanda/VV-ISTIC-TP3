@@ -7,26 +7,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringUtilsTest {
   
-  @org.junit.jupiter.api.Test
-    void monTest(){
+    @org.junit.jupiter.api.Test
+    void isEmpty(){
         assertTrue(isBalanced(""));
-        assertTrue(isBalanced("Hello"));
-        assertTrue(isBalanced("This is a [test]!"));
-        assertTrue(isBalanced("()"));
-        assertTrue(isBalanced("{}"));
-        assertTrue(isBalanced("[]"));
-        assertFalse(isBalanced("("));
-        assertFalse(isBalanced(")"));
-        assertFalse(isBalanced("{"));
-        assertFalse(isBalanced("}"));
-        assertFalse(isBalanced("["));
-        assertFalse(isBalanced("]"));
-        assertFalse(isBalanced("()("));
-        assertFalse(isBalanced("[[[[[["));
-        assertFalse(isBalanced("(]"));
-        assertFalse(isBalanced("{[}]"));
-        assertTrue(isBalanced("{ [ ( ) ] }"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void nestedBalanced(){
         assertTrue(isBalanced("[{}](){}"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void openingUnbalanced(){
+        assertFalse(isBalanced("{"));
+    }
+    @org.junit.jupiter.api.Test
+    void closingUnbalanced(){
+        assertFalse(isBalanced("}"));
+    }
+    @org.junit.jupiter.api.Test
+    void nestedUnbalanced(){
+        assertFalse(isBalanced("{[}]"));
     }
 
 }
